@@ -6,8 +6,8 @@ STbench is a benchmark to evaluate the ability of large language models in spati
 
 All data samples in STbench are in the form of text completion. An instance is as follows:
 ```text
-Question: Below is the coordinate information and related comments of a point of interest: $\cdots$. Please answer the category of this point of interest.
-Options: (1) xxxx, (2) xxxx, (3) xxxx, $\cdots$.
+Question: Below is the coordinate information and related comments of a point of interest: ... Please answer the category of this point of interest.
+Options: (1) xxxx, (2) xxxx, (3) xxxx, ...
 Please answer one option.
 Answer: The answer is option (
 ```
@@ -79,12 +79,18 @@ Project
       |—— config.py             # A declaration of some configuration such as the file path for each task      
 ```
 1. To benchmark a new model, namely **NEW_MODEL**
+
    a. Write your code for calling the API of this model in `code/model_inference/new_model.py`, and modify `code/model_inference/__init__.py` accordingly.
+
    b. Add the model to the model list in `code/basic_prompting.py` 
 
-2. To include a new dataset, namely `new_dataset.jsonl`, for a task **NEW_TASK**
+3. To include a new dataset, namely `new_dataset.jsonl`, for a task **NEW_TASK**
+
    a. Put your datasets here: `dataset/basic/new_dataset.jsonl`
+
    b. Modify `code/result_parser.py` and implement your function `new_task_parser()` to parse the results from the output of the LLMs
+
    c. Modify `code/config.py` to specify the mapping of **NEW_TASK** to the dataset path `dataset/basic/new_dataset.jsonl` and the mapping of **NEW_TASK** to the result parser `new_task_parser()`
+
    d. Add the task to the task list in `code/basic_prompting.py` 
    
