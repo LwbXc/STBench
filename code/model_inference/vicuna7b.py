@@ -5,12 +5,15 @@ from fastchat.model import load_model, add_model_args
 
 class vicuna7b(object):
 
-    def __init__(self, model_path='~/.cache/modelscope/hub/AI-ModelScope/vicuna-7b-v1___5', torch_dtype=torch.float32, device='cuda'):
+    def __init__(self, model_path='~/.cache/modelscope/hub/AI-ModelScope/vicuna-7b-v1___5', torch_dtype=torch.float32, device='cuda', max_new_tokens=5):
         print("Loading model from", model_path)
         self.model, self.tokenizer = load_model(model_path, device=device, load_8bit=False, dtype=torch_dtype)
         self.model_path = model_path
+        self.max_new_tokens = max_new_tokens
     
-    def generate(self, input_text, max_new_tokens=100):
+    def generate(self, input_text, max_new_tokens=None):
+        if max_new_tokens is None:
+            max_new_tokens = self.max_new_tokens
         inputs = self.tokenizer(input_text, return_tensors="pt").to(self.model.device)
         outputs = self.model.generate(**inputs,  max_new_tokens=max_new_tokens)
         if self.model.config.is_encoder_decoder:

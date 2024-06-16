@@ -10,3 +10,5 @@ from .phi2 import phi2
 from .qwen7b import qwen7b
 from .vicuna7b import vicuna7b
 from .yi6b import yi6b
+from .chatgpt import chatgpt
+from .gpt4o import gpt4o
