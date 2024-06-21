@@ -2,7 +2,7 @@
 
 ![local file](overview.png)
 
-STbench is a benchmark to evaluate the ability of large language models in spatio-temporal analysis. This benchmark consists of 13 distinct tasks and over 60,000 question-answer pairs, covering four dimensions: knowledge comprehension, spatio-temporal reasoning, accurate computation and downstream applications.
+STBench is a benchmark to evaluate the ability of large language models in spatio-temporal analysis. This benchmark consists of 13 distinct tasks and over 60,000 question-answer pairs, covering four dimensions: knowledge comprehension, spatio-temporal reasoning, accurate computation and downstream applications.
 
 All data samples in STbench are in the form of text completion. An instance is as follows:
 ```text
@@ -27,9 +27,9 @@ We have benchmarked 13 distinct large language models and here we provide a simp
    ```
 3. Model Downloading
 
-   Our experiments about open-source models are based on [modelscope](https://github.com/modelscope/modelscope) and the models can be downloaded by following command:
+   Our experiments about open-source models are based on [modelscope](https://github.com/modelscope/modelscope) and these open-source models can be downloaded by following command:
    ```bash
-   cd code/open_source
+   cd code
    python downloads_llms.py
    ```
 
