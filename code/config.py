@@ -35,72 +35,72 @@ max_tokens = {
 }
 
 dataset_files = {
-    "poi_category_recognition": ["../../datasets/basic/knowledge_comprehension/poi_category_recognition.jsonl"],
-    "poi_identification": ["../../datasets/basic/knowledge_comprehension/poi_identification.jsonl"],
-    "urban_region_function_recognition": ["../../datasets/basic/knowledge_comprehension/urban_region_function_recognition.jsonl"],
-    "administrative_region_determination": ["../../datasets/basic/knowledge_comprehension/administrative_region_determination.jsonl"],
-    "point_trajectory": ["../../datasets/basic/spatiotemporal_reasoning/point_trajectory.jsonl"],
-    "point_region": ["../../datasets/basic/spatiotemporal_reasoning/point_region_2regions.jsonl", 
-                     "../../datasets/basic/spatiotemporal_reasoning/point_region_3regions.jsonl",
-                     "../../datasets/basic/spatiotemporal_reasoning/point_region_4regions.jsonl",
-                     "../../datasets/basic/spatiotemporal_reasoning/point_region_5regions.jsonl"],
-    "trajectory_region": ["../../datasets/basic/spatiotemporal_reasoning/trajectory_region_length2.jsonl",
-                          "../../datasets/basic/spatiotemporal_reasoning/trajectory_region_length4.jsonl",
-                          "../../datasets/basic/spatiotemporal_reasoning/trajectory_region_length6.jsonl",
-                          "../../datasets/basic/spatiotemporal_reasoning/trajectory_region_length8.jsonl",
-                          "../../datasets/basic/spatiotemporal_reasoning/trajectory_region_length10.jsonl"],
-    "trajectory_identification": ["../../datasets/basic/spatiotemporal_reasoning/trajectory_identification_downsampling.jsonl",
-                                  "../../datasets/basic/spatiotemporal_reasoning/trajectory_identification_staggered_sampling.jsonl",
-                                  "../../datasets/basic/spatiotemporal_reasoning/trajectory_identification_spatial_offset.jsonl",
-                                  "../../datasets/basic/spatiotemporal_reasoning/trajectory_identification_temporal_offset.jsonl"],
-    "trajectory_trajectory": ["../../datasets/basic/accurate_calculation/trajectory_trajectory.jsonl"],
-    "direction_determination": ["../../datasets/basic/accurate_calculation/direction_determination.jsonl"],
-    "trajectory_anomaly_detection": ["../../datasets/basic/downstream_applications/trajectory_anomaly_detection_abnormal.jsonl",
-                                     "../../datasets/basic/downstream_applications/trajectory_anomaly_detection_normal.jsonl"],
-    "trajectory_classification": ["../../datasets/basic/downstream_applications/trajectory_classification.jsonl"],
-    "trajectory_prediction": ["../../datasets/basic/downstream_applications/trajectory_prediction.jsonl"]
+    "poi_category_recognition": ["../datasets/basic/knowledge_comprehension/poi_category_recognition.jsonl"],
+    "poi_identification": ["../datasets/basic/knowledge_comprehension/poi_identification.jsonl"],
+    "urban_region_function_recognition": ["../datasets/basic/knowledge_comprehension/urban_region_function_recognition.jsonl"],
+    "administrative_region_determination": ["../datasets/basic/knowledge_comprehension/administrative_region_determination.jsonl"],
+    "point_trajectory": ["../datasets/basic/spatiotemporal_reasoning/point_trajectory.jsonl"],
+    "point_region": ["../datasets/basic/spatiotemporal_reasoning/point_region_2regions.jsonl", 
+                     "../datasets/basic/spatiotemporal_reasoning/point_region_3regions.jsonl",
+                     "../datasets/basic/spatiotemporal_reasoning/point_region_4regions.jsonl",
+                     "../datasets/basic/spatiotemporal_reasoning/point_region_5regions.jsonl"],
+    "trajectory_region": ["../datasets/basic/spatiotemporal_reasoning/trajectory_region_length2.jsonl",
+                          "../datasets/basic/spatiotemporal_reasoning/trajectory_region_length4.jsonl",
+                          "../datasets/basic/spatiotemporal_reasoning/trajectory_region_length6.jsonl",
+                          "../datasets/basic/spatiotemporal_reasoning/trajectory_region_length8.jsonl",
+                          "../datasets/basic/spatiotemporal_reasoning/trajectory_region_length10.jsonl"],
+    "trajectory_identification": ["../datasets/basic/spatiotemporal_reasoning/trajectory_identification_downsampling.jsonl",
+                                  "../datasets/basic/spatiotemporal_reasoning/trajectory_identification_staggered_sampling.jsonl",
+                                  "../datasets/basic/spatiotemporal_reasoning/trajectory_identification_spatial_offset.jsonl",
+                                  "../datasets/basic/spatiotemporal_reasoning/trajectory_identification_temporal_offset.jsonl"],
+    "trajectory_trajectory": ["../datasets/basic/accurate_calculation/trajectory_trajectory.jsonl"],
+    "direction_determination": ["../datasets/basic/accurate_calculation/direction_determination.jsonl"],
+    "trajectory_anomaly_detection": ["../datasets/basic/downstream_applications/trajectory_anomaly_detection_abnormal.jsonl",
+                                     "../datasets/basic/downstream_applications/trajectory_anomaly_detection_normal.jsonl"],
+    "trajectory_classification": ["../datasets/basic/downstream_applications/trajectory_classification.jsonl"],
+    "trajectory_prediction": ["../datasets/basic/downstream_applications/trajectory_prediction.jsonl"]
 }
 
 icl_files = {
-    "poi_identification": "../../datasets/icl/poi_identification.jsonl",
-    "trajectory_region": "../../datasets/icl/trajectory_region.jsonl",
-    "trajectory_trajectory": "../../datasets/icl/trajectory_trajectory.jsonl",
-    "direction_determination": "../../datasets/icl/direction_determination.jsonl",
-    "trajectory_anomaly_detection": "../../datasets/icl/trajectory_anomaly_detection.jsonl",
-    "trajectory_prediction": "../../datasets/icl/trajectory_prediction.jsonl"
+    "poi_identification": "../datasets/icl/poi_identification.jsonl",
+    "trajectory_region": "../datasets/icl/trajectory_region.jsonl",
+    "trajectory_trajectory": "../datasets/icl/trajectory_trajectory.jsonl",
+    "direction_determination": "../datasets/icl/direction_determination.jsonl",
+    "trajectory_anomaly_detection": "../datasets/icl/trajectory_anomaly_detection.jsonl",
+    "trajectory_prediction": "../datasets/icl/trajectory_prediction.jsonl"
 }
 
 cot_files = {
-    "urban_region_function_recognition": "../../datasets/cot/urban_region_function_recognition.jsonl",
-    "trajectory_region": "../../datasets/cot/trajectory_region.jsonl",
-    "trajectory_trajectory": "../../datasets/cot/trajectory_trajectory.jsonl",
-    "trajectory_classification": "../../datasets/cot/trajectory_classification.jsonl"
+    "urban_region_function_recognition": "../datasets/cot/urban_region_function_recognition.jsonl",
+    "trajectory_region": "../datasets/cot/trajectory_region.jsonl",
+    "trajectory_trajectory": "../datasets/cot/trajectory_trajectory.jsonl",
+    "trajectory_classification": "../datasets/cot/trajectory_classification.jsonl"
 }
 
 sft_files = {
     "administrative_region_determination": {
-        "train": "../../datasets/sft/administrative_region_determination_train.jsonl",
-        "valid": "../../datasets/sft/administrative_region_determination_valid.jsonl"
+        "train": "../datasets/sft/administrative_region_determination_train.jsonl",
+        "valid": "../datasets/sft/administrative_region_determination_valid.jsonl"
     },
     "direction_determination": {
-        "train": "../../datasets/sft/direction_determination_train.jsonl",
-        "valid": "../../datasets/sft/direction_determination_valid.jsonl"
+        "train": "../datasets/sft/direction_determination_train.jsonl",
+        "valid": "../datasets/sft/direction_determination_valid.jsonl"
     },
     "trajectory_anomaly_detection":{
-        "train": "../../datasets/sft/trajectory_anomaly_detection_train.jsonl",
-        "valid": "../../datasets/sft/trajectory_anomaly_detection_valid.jsonl"
+        "train": "../datasets/sft/trajectory_anomaly_detection_train.jsonl",
+        "valid": "../datasets/sft/trajectory_anomaly_detection_valid.jsonl"
     },
     "trajectory_prediction": {
-        "train": "../../datasets/sft/trajectory_prediction_train.jsonl",
-        "valid": "../../datasets/sft/trajectory_prediction_valid.jsonl"
+        "train": "../datasets/sft/trajectory_prediction_train.jsonl",
+        "valid": "../datasets/sft/trajectory_prediction_valid.jsonl"
     },
     "trajectory_region": {
-        "train": "../../datasets/sft/trajectory_region_train.jsonl",
-        "valid": "../../datasets/sft/trajectory_region_valid.jsonl"
+        "train": "../datasets/sft/trajectory_region_train.jsonl",
+        "valid": "../datasets/sft/trajectory_region_valid.jsonl"
     },
     "trajectory_trajectory": {
-        "train": "../../datasets/sft/trajectory_trajectory_train.jsonl",
-        "valid": "../../datasets/sft/trajectory_trajectory_valid.jsonl"        
+        "train": "../datasets/sft/trajectory_trajectory_train.jsonl",
+        "valid": "../datasets/sft/trajectory_trajectory_valid.jsonl"        
     }
 }
 
