@@ -20,42 +20,49 @@ The model is expected to complete the text, *i.e.*, it should generate an option
 We have benchmarked 13 distinct large language models and here we provide a simple guide to reproduce our experiments.
 
 1. Dependency Installation
- Run the following command to install dependencies:
+
+   Run the following command to install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-2. Model Downloading
-Our experiments about open-source models are based on [modelscope](https://github.com/modelscope/modelscope) and the models can be downloaded by following command:
-    ```bash
-    cd code/open_source
-    python downloads_llms.py
-    ```
-3. Basic Prompt
-Run the following command to benchmark all models through 13 tasks:
-    ```bash
-    python basic_prompting.py
-    ``` 
+3. Model Downloading
 
-4. In-Context Learning
-Run the following command to evaluate the performance of all models with in-context learning:
-    ```bash
-    python icl_prompting.py
-    ``` 
+   Our experiments about open-source models are based on [modelscope](https://github.com/modelscope/modelscope) and the models can be downloaded by following command:
+   ```bash
+   cd code/open_source
+   python downloads_llms.py
+   ```
 
-5. Chain-of-Thought Prompting
-To conduct experiments with chain-of-thought prompting for all models, run the following command:
-    ```bash
-    python cot_prompting.py
-    ```
+4. Basic Prompt
 
-6. Fine-tuning
-Run the following command to fine-tune the model and evaluate the fine-tuned model:
-    ```bash
-    python fine_tuning.py
-    ```
+   Run the following command to benchmark all models through 13 tasks:
+   ```bash
+   python basic_prompting.py
+   ``` 
+
+6. In-Context Learning
+
+   Run the following command to evaluate the performance of all models with in-context learning:
+   ```bash
+   python icl_prompting.py
+   ``` 
+
+7. Chain-of-Thought Prompting
+
+   To conduct experiments with chain-of-thought prompting for all models, run the following command:
+   ```bash
+   python cot_prompting.py
+   ```
+
+8. Fine-tuning
+
+   Run the following command to fine-tune the model and evaluate the fine-tuned model:
+   ```bash
+   python fine_tuning.py
+   ```
 
 ## Detailed Usage
-The directory of this repository is organized as follows:
+This repository is organized as follows:
 ```text
 Project
   |—— LICENSE
@@ -76,7 +83,7 @@ Project
       |—— cot_prompting.py      # run experiments with cot prompting
       |—— fine_tuning.py        # run experiments with fine-tuning
       |—— result_parser.py      # code for identifying the final answer of the model
-      |—— config.py             # A declaration of some configuration such as the file path for each task      
+      |—— config.py             # a declaration of some configuration such as the file path for each task      
 ```
 1. To benchmark a new model, namely **NEW_MODEL**
 
@@ -90,7 +97,7 @@ Project
 
    b. Modify `code/result_parser.py` and implement your function `new_task_parser()` to parse the results from the output of the LLMs
 
-   c. Modify `code/config.py` to specify the mapping of **NEW_TASK** to the dataset path `dataset/basic/new_dataset.jsonl` and the mapping of **NEW_TASK** to the result parser `new_task_parser()`
+   c. Modify `code/config.py` to specify the mapping from **NEW_TASK** to the dataset path `dataset/basic/new_dataset.jsonl` and the mapping from **NEW_TASK** to the result parser `new_task_parser()`
 
    d. Add the task to the task list in `code/basic_prompting.py` 
    
