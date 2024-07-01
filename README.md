@@ -1,4 +1,4 @@
-# STBench: Assessing the Ability of Large Language Models in Spatio-Temporal Analysis
+<h1 align="center">STBench: Assessing the Ability of Large Language Models in Spatio-Temporal Analysis</h1>
 
 <p align="center">
 Institute of Computing Technology (ICT), Chinese Academy of Sciences (CAS)<br/>
@@ -116,7 +116,7 @@ Project
         <td align="center" colspan="4">Knowledge Comprehension</td>
         <td align="center" colspan="4">Spatio-temporal Reasoning</td>
         <td align="center" colspan="2">Accurate Computation</td>
-        <td align="center"  colspan="3">Downstream Applications</td>
+        <td align="center" colspan="3">Downstream Applications</td>
     </tr>
     <tr>
         <td align="center"></td><td align="center">PCR</td><td align="center">PI</td><td align="center">URFR</td><td align="center">ARD</td><td align="center">PTRD</td><td align="center">PRRD</td><td align="center">TRRD</td><td align="center">TI</td><td align="center">DD</td><td align="center">TTRA</td><td align="center">TAD</td><td align="center">TC</td><td align="center">TP</td>
