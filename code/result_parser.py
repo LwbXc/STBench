@@ -15,7 +15,7 @@ def find_option_number(response, label, error_writer):
         else:
             return 0
     else:
-        error_writer.write(r"### response:{}, answer:{} ###\n".format(response, label))
+        error_writer.write("### response:{}, answer:{} ###\n".format(response, label))
         return None
 
 def trajectory_classification(response, label, error_writer):
@@ -30,7 +30,7 @@ def trajectory_classification(response, label, error_writer):
         else:
             return 0
     else:
-        error_writer.write(r"### response:{}, ### answer:{} ###\n".format(response, label))
+        error_writer.write("### response:{}, ### answer:{} ###\n".format(response, label))
         return None
 
 def find_option_number_for_cot(response, label, error_writer):
@@ -43,7 +43,7 @@ def find_option_number_for_cot(response, label, error_writer):
         else:
             return 0
     else:
-        error_writer.write(r"### response:{}, ### answer:{} ###\n".format(response, label))
+        error_writer.write("### response:{}, ### answer:{} ###\n".format(response, label))
         return None
 
 def yes_or_no(response, label, error_writer):
@@ -57,7 +57,7 @@ def yes_or_no(response, label, error_writer):
         else:
             return 0
     else:
-        error_writer.write(r"### response:{}, ### answer:{} ###\n".format(response, label))
+        error_writer.write("### response:{}, ### answer:{} ###\n".format(response, label))
         return None
 
 def anomaly_detection(response, label, error_writer):
@@ -73,7 +73,7 @@ def anomaly_detection(response, label, error_writer):
         else:
             return 0
     else:
-        error_writer.write(r"### response:{}, ### answer:{} ###\n".format(response, label))
+        error_writer.write("### response:{}, ### answer:{} ###\n".format(response, label))
         return None
 
 def extract_floats(input_string):
