@@ -11,7 +11,7 @@ Institute of Computing Technology (ICT), Chinese Academy of Sciences (CAS)<br/>
 
 STBench is a benchmark to evaluate the ability of large language models in spatio-temporal analysis. This benchmark consists of 13 distinct tasks and over 60,000 question-answer pairs, covering four dimensions: knowledge comprehension, spatio-temporal reasoning, accurate computation and downstream applications.
 
-All data samples in STbench are in the form of text completion. An instance is as follows:
+All data samples in STBench are in the form of text completion. An instance is as follows:
 ```text
 Question: Below is the coordinate information and related comments of a point of interest: ... Please answer the category of this point of interest.
 Options: (1) xxxx, (2) xxxx, (3) xxxx, ...
@@ -85,10 +85,10 @@ Project
       |—— model_inference       # calling the API of each large language model
       |—— model_finetuning      # fine-tuning code
       |—— download_llms.py      # downloading open-source models
-      |—— basic_prompting.py    # run experiments with basic prompting
-      |—— icl_prompting.py      # run experiments with icl prompting
-      |—— cot_prompting.py      # run experiments with cot prompting
-      |—— fine_tuning.py        # run experiments with fine-tuning
+      |—— basic_prompting.py    # running experiments with basic prompting
+      |—— icl_prompting.py      # running experiments with icl prompting
+      |—— cot_prompting.py      # running experiments with cot prompting
+      |—— fine_tuning.py        # running experiments with fine-tuning
       |—— result_parser.py      # code for identifying the final answer of the model
       |—— config.py             # a declaration of some configuration such as the file path for each task      
 ```
