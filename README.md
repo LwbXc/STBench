@@ -1,4 +1,4 @@
-# STBench: Assessing the Ability of Large Language Models in Spatio-Temporal Analysis
+<h1 align="center">STBench: Assessing the Ability of Large Language Models in Spatio-Temporal Analysis</h1>
 
 <p align="center">
 Institute of Computing Technology (ICT), Chinese Academy of Sciences (CAS)<br/>
@@ -11,7 +11,7 @@ Institute of Computing Technology (ICT), Chinese Academy of Sciences (CAS)<br/>
 
 STBench is a benchmark to evaluate the ability of large language models in spatio-temporal analysis. This benchmark consists of 13 distinct tasks and over 60,000 question-answer pairs, covering four dimensions: knowledge comprehension, spatio-temporal reasoning, accurate computation and downstream applications.
 
-All data samples in STbench are in the form of text completion. An instance is as follows:
+All data samples in STBench are in the form of text completion. An instance is as follows:
 ```text
 Question: Below is the coordinate information and related comments of a point of interest: ... Please answer the category of this point of interest.
 Options: (1) xxxx, (2) xxxx, (3) xxxx, ...
@@ -85,10 +85,10 @@ Project
       |—— model_inference       # calling the API of each large language model
       |—— model_finetuning      # fine-tuning code
       |—— download_llms.py      # downloading open-source models
-      |—— basic_prompting.py    # run experiments with basic prompting
-      |—— icl_prompting.py      # run experiments with icl prompting
-      |—— cot_prompting.py      # run experiments with cot prompting
-      |—— fine_tuning.py        # run experiments with fine-tuning
+      |—— basic_prompting.py    # running experiments with basic prompting
+      |—— icl_prompting.py      # running experiments with icl prompting
+      |—— cot_prompting.py      # running experiments with cot prompting
+      |—— fine_tuning.py        # running experiments with fine-tuning
       |—— result_parser.py      # code for identifying the final answer of the model
       |—— config.py             # a declaration of some configuration such as the file path for each task      
 ```
@@ -116,7 +116,7 @@ Project
         <td align="center" colspan="4">Knowledge Comprehension</td>
         <td align="center" colspan="4">Spatio-temporal Reasoning</td>
         <td align="center" colspan="2">Accurate Computation</td>
-        <td align="center"  colspan="3">Downstream Applications</td>
+        <td align="center" colspan="3">Downstream Applications</td>
     </tr>
     <tr>
         <td align="center"></td><td align="center">PCR</td><td align="center">PI</td><td align="center">URFR</td><td align="center">ARD</td><td align="center">PTRD</td><td align="center">PRRD</td><td align="center">TRRD</td><td align="center">TI</td><td align="center">DD</td><td align="center">TTRA</td><td align="center">TAD</td><td align="center">TC</td><td align="center">TP</td>
