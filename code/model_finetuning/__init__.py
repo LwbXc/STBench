@@ -1,2 +1,2 @@
 from .my_trainer import sft
-from .my_formatting_fun import formatting_func_space, formatting_func_without_space, trajectory_region_formatting
+from .my_formatting_fun import formatting_func_space, formatting_func_without_space, trajectory_region_formatting, flow_prediction_formatting

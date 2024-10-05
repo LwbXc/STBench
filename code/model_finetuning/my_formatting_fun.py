@@ -23,3 +23,11 @@ def trajectory_region_formatting(example):
         output_texts.append(text)
     random.shuffle(output_texts)
     return output_texts
+
+def flow_prediction_formatting(example):
+    output_texts = []
+    for i in range(len(example['Question'])):
+        text = f"{example['Question'][i][:-1]}{example['Answer'][i]}"
+        output_texts.append(text)
+    random.shuffle(output_texts)
+    return output_texts

@@ -1,6 +1,6 @@
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.prompts import ChatPromptTemplate
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
 
 
@@ -13,6 +13,9 @@ class gpt4o(object):
             openai_api_key=api_key,
             model_name="gpt-4o-2024-05-13"
         )
+        self.api_key = api_key
+        self.max_new_tokens = max_new_tokens
+        self.model_path = "gpt-4o-2024-05-13"
         self._init_chain(OpenAIChatModel)
 
     def _init_chain(self, chat_model):
@@ -20,9 +23,9 @@ class gpt4o(object):
             [
                 (
                     "system",
-                    "You are a helpful text completion assistant. Please continue writing the text entered by the human."
+                    "You are a helpful text completion assistant. Please continue writing the text entered by the human. Please continue writing the text entered by the human."
                 ),
-                ("human", "{question}"),
+                ("human", "Please continue writing the following text: \'{question}\'"),
             ]
         )
         self.common_chain = (

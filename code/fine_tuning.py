@@ -1,4 +1,4 @@
-from model_finetuning import formatting_func_without_space, formatting_func_space, trajectory_region_formatting, sft
+from model_finetuning import formatting_func_without_space, formatting_func_space, trajectory_region_formatting, flow_prediction_formatting, sft
 from model_inference import gemma2b
 from config import ScriptArguments, sft_files, dataset_files, max_tokens, result_parsers
 from tqdm import tqdm
@@ -6,7 +6,7 @@ import json
 import os
 
 models_path = '~/.cache/modelscope/hub/AI-ModelScope/gemma-2b'
-tasks2formatting = {"administrative_region_determination": formatting_func_without_space, "direction_determination": formatting_func_without_space, "trajectory_anomaly_detection": formatting_func_space, "trajectory_prediction": formatting_func_space, "trajectory_region": trajectory_region_formatting, "trajectory_trajectory": formatting_func_without_space}
+tasks2formatting = {"administrative_region_determination": formatting_func_without_space, "direction_determination": formatting_func_without_space, "trajectory_anomaly_detection": formatting_func_space, "trajectory_prediction": formatting_func_space, "trajectory_region": trajectory_region_formatting, "trajectory_trajectory": formatting_func_without_space, "flow_prediction": flow_prediction_formatting}
 
 if not os.path.exists("./save"):
     os.mkdir("./save")
@@ -15,14 +15,14 @@ if not os.path.exists("./logs"):
     os.mkdir("./logs")
 
 for task, formatting_func in tasks2formatting.items():
-    save_path = "/save/{}/".format(task)
+    save_path = "./save/{}/".format(task)
 
     if not os.path.exists(save_path):
         os.mkdir(save_path)
 
     sft(ScriptArguments, models_path, formatting_func, sft_files[task], save_path)
 
-    model = gemma2b(save_path)
+    model = gemma2b(save_path+'merged_model')
 
     error_writer = open("./logs/{}.log".format(task), 'a')
     error_writer.write(save_path+'\n')

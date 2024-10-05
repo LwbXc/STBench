@@ -1,6 +1,6 @@
 from langchain.schema.runnable import RunnablePassthrough
 from langchain.prompts import ChatPromptTemplate
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 from langchain_core.output_parsers import StrOutputParser
 
 
@@ -16,6 +16,7 @@ class chatgpt(object):
         self.api_key = api_key
         self.max_new_tokens = max_new_tokens
         self._init_chain(OpenAIChatModel)
+        self.model_path = "chatgpt"
 
     def _init_chain(self, chat_model):
         common_prompt = ChatPromptTemplate.from_messages(

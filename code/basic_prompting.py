@@ -5,7 +5,7 @@ import json
 import os
 
 models = [chatglm2, chatglm3, deepseek7b, falcon7b, gemma2b, gemma7b, llama2_7b, mistral7b, phi2, qwen7b, vicuna7b, yi6b, chatgpt, gpt4o]
-tasks = ["poi_category_recognition", "poi_identification", "urban_region_function_recognition", "administrative_region_determination", "point_trajectory", "point_region", "trajectory_region", "trajectory_identification", "trajectory_trajectory", "direction_determination", "trajectory_anomaly_detection", "trajectory_classification", "trajectory_prediction"]
+tasks = ["poi_category_recognition", "poi_identification", "urban_region_function_recognition", "administrative_region_determination", "point_trajectory", "point_region", "trajectory_region", "trajectory_identification", "trajectory_trajectory", "direction_determination", "navigation", "flow_prediction", "trajectory_anomaly_detection", "trajectory_classification", "trajectory_prediction"]
 
 if not os.path.exists("./logs"):
     os.mkdir("./logs")
@@ -20,26 +20,27 @@ for fun in models:
             dataset = open(dataset_path, 'r')
             dataset = dataset.readlines()
 
-            correct = 0
-            total = 0
-            exception = 0
+            metrics = {"exception":0, "total":0}
 
             for i, item in tqdm(enumerate(dataset), total=len(dataset)):
                 item = json.loads(item)
                 response = model.generate(item["Question"], max_tokens[task])
-                score = result_parser(response, item["Answer"], error_writer)
-                
-                if task!='trajectory_prediction' or score is not None:
-                    total +=1
-                if score is None:
-                    exception += 1
-                else:
-                    correct += score
+                metrics = result_parser(response, item["Answer"], error_writer, metrics)
 
                 if i%100==0:
-                    print("Dataset: {}\nTotal: {}, correct:{}, exception:{}, accuracy:{}\n\n".format(dataset_path, total, correct, exception, correct/total))
+                    message = "Dataset: {}\nTotal: {}, exception:{}".format(dataset_path, metrics['total'], metrics['exception'])
+                    for key,value in metrics.items():
+                        if key!='total' and key!='exception':
+                            message += ", {}:{}".format(key, value/metrics['total'])
+                    message += '\n\n'
+                    print(message)
             
-            error_writer.write("Dataset: {}\nTotal: {}, correct:{}, exception:{}, accuracy:{}\n\n".format(dataset_path, total, correct, exception, correct/total))
+            message = "Dataset: {}\nTotal: {}, exception:{}".format(dataset_path, metrics['total'], metrics['exception'])
+            for key,value in metrics.items():
+                if key!='total' and key!='exception':
+                    message += ", {}:{}".format(key, value/metrics['total'])
+            message += '\n\n'
+            error_writer.write(message)
             error_writer.flush()
         error_writer.write("\n")
     error_writer.close()

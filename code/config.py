@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from typing import Optional
-from result_parser import yes_or_no, find_option_number, anomaly_detection, trajectory_prediction, trajectory_classification
+from result_parser import yes_or_no, find_option_number, anomaly_detection, trajectory_prediction, trajectory_classification, flow_prediction
 
 result_parsers = {
     "poi_category_recognition": find_option_number,
@@ -15,7 +15,9 @@ result_parsers = {
     "direction_determination": find_option_number,
     "trajectory_anomaly_detection": anomaly_detection,
     "trajectory_classification": trajectory_classification,
-    "trajectory_prediction": trajectory_prediction
+    "trajectory_prediction": trajectory_prediction,
+    "flow_prediction": flow_prediction,
+    "navigation": find_option_number
 }
 
 max_tokens = {
@@ -31,7 +33,9 @@ max_tokens = {
     "direction_determination": 15,
     "trajectory_anomaly_detection": 15,
     "trajectory_classification": 15,
-    "trajectory_prediction": 50
+    "trajectory_prediction": 50,
+    "flow_prediction": 50,
+    "navigation": 15
 }
 
 dataset_files = {
@@ -58,7 +62,17 @@ dataset_files = {
     "trajectory_anomaly_detection": ["../datasets/basic/downstream_applications/trajectory_anomaly_detection_abnormal.jsonl",
                                      "../datasets/basic/downstream_applications/trajectory_anomaly_detection_normal.jsonl"],
     "trajectory_classification": ["../datasets/basic/downstream_applications/trajectory_classification.jsonl"],
-    "trajectory_prediction": ["../datasets/basic/downstream_applications/trajectory_prediction.jsonl"]
+    "trajectory_prediction": ["../datasets/basic/downstream_applications/trajectory_prediction.jsonl"],
+    "flow_prediction": ["../datasets/basic/downstream_applications/inflow_prediction.jsonl",
+                        "../datasets/basic/downstream_applications/outflow_prediction.jsonl"],
+    "navigation": ["../datasets/basic/accurate_calculation/navigation_with_weights_5.jsonl",
+                   "../datasets/basic/accurate_calculation/navigation_with_weights_6.jsonl",
+                   "../datasets/basic/accurate_calculation/navigation_with_weights_7.jsonl",
+                   "../datasets/basic/accurate_calculation/navigation_with_weights_8.jsonl",
+                   "../datasets/basic/accurate_calculation/navigation_without_weights_8.jsonl",
+                   "../datasets/basic/accurate_calculation/navigation_without_weights_9.jsonl",
+                   "../datasets/basic/accurate_calculation/navigation_without_weights_10.jsonl",
+                   "../datasets/basic/accurate_calculation/navigation_without_weights_11.jsonl"]
 }
 
 icl_files = {
@@ -101,6 +115,10 @@ sft_files = {
     "trajectory_trajectory": {
         "train": "../datasets/sft/trajectory_trajectory_train.jsonl",
         "valid": "../datasets/sft/trajectory_trajectory_valid.jsonl"        
+    },
+    "flow_prediction": {
+        "train": "../datasets/sft/flow_prediction_train.jsonl",
+        "valid": "../datasets/sft/flow_prediction_valid.jsonl"
     }
 }
 
