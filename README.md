@@ -1,11 +1,5 @@
 <h1 align="center">STBench: Assessing the Ability of Large Language Models in Spatio-Temporal Analysis</h1>
 
-<p align="center">
-Institute of Computing Technology (ICT), Chinese Academy of Sciences (CAS)<br/>
-</p>
-<p align="center">
-   🤗 <a href="https://huggingface.co/datasets/LwbXc/STBench" target="_blank">Hugging Face Dataset</a> •   📃 <a href="https://arxiv.org/abs/2406.19065" target="_blank">Paper</a> 
-</p>
 
 ![local file](overview.png)
 
