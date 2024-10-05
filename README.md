@@ -42,7 +42,7 @@ We have benchmarked 13 distinct large language models and here we provide a simp
 
 4. Basic Prompt
 
-   Run the following command to benchmark all models through 13 tasks:
+   Run the following command to benchmark all models through 15 tasks:
    ```bash
    python basic_prompting.py
    ``` 
