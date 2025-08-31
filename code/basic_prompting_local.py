@@ -4,7 +4,7 @@ from tqdm import tqdm
 import json
 import os
 
-models = [chatglm2, chatglm3, deepseek7b, falcon7b, gemma2b, gemma7b, llama2_7b, mistral7b, phi2, qwen7b, vicuna7b, yi6b, chatgpt, gpt4o]
+models = [chatglm2, chatglm3, deepseek7b, falcon7b, gemma2b, gemma7b, llama2_7b, mistral7b, phi2, qwen7b, vicuna7b, yi6b, qwen2_5_1_5B, qwen2_5_14B]
 tasks = ["poi_category_recognition", "poi_identification", "urban_region_function_recognition", "administrative_region_determination", "point_trajectory", "point_region", "trajectory_region", "trajectory_identification", "trajectory_trajectory", "direction_determination", "navigation", "flow_prediction", "trajectory_anomaly_detection", "trajectory_classification", "trajectory_prediction"]
 
 if not os.path.exists("./logs"):

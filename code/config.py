@@ -17,7 +17,10 @@ result_parsers = {
     "trajectory_classification": trajectory_classification,
     "trajectory_prediction": trajectory_prediction,
     "flow_prediction": flow_prediction,
-    "navigation": find_option_number
+    "navigation": find_option_number,
+    "road_level_judgment": find_option_number,
+    "rush_hour_detection": yes_or_no,
+    "texi_occupancy_detection": yes_or_no
 }
 
 max_tokens = {
@@ -35,7 +38,10 @@ max_tokens = {
     "trajectory_classification": 15,
     "trajectory_prediction": 50,
     "flow_prediction": 50,
-    "navigation": 15
+    "navigation": 15,
+    "road_level_judgment": 15,
+    "rush_hour_detection": 15,
+    "texi_occupancy_detection": 15
 }
 
 dataset_files = {
@@ -72,7 +78,10 @@ dataset_files = {
                    "../datasets/basic/accurate_calculation/navigation_without_weights_8.jsonl",
                    "../datasets/basic/accurate_calculation/navigation_without_weights_9.jsonl",
                    "../datasets/basic/accurate_calculation/navigation_without_weights_10.jsonl",
-                   "../datasets/basic/accurate_calculation/navigation_without_weights_11.jsonl"]
+                   "../datasets/basic/accurate_calculation/navigation_without_weights_11.jsonl"],
+    "road_level_judgment": ["../datasets/basic/semantic_reasoning/road_level_judgment.jsonl"],
+    "rush_hour_detection": ["../datasets/basic/semantic_reasoning/rush_hour_detection.jsonl"],
+    "texi_occupancy_detection": ["../datasets/basic/semantic_reasoning/taxi_occupancy_detection.jsonl"]
 }
 
 icl_files = {
