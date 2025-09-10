@@ -1,80 +1,89 @@
 <h1 align="center">STBench+: Assessing the Ability of Large Language Models in Spatio-Temporal Analysis</h1>
 
-<p align="center">
-Institute of Computing Technology (ICT), Chinese Academy of Sciences (CAS)<br/>
-</p>
-<p align="center">
-   🤗 <a href="https://huggingface.co/datasets/LwbXc/STBench" target="_blank">Hugging Face Dataset</a> •   📃 <a href="https://arxiv.org/abs/2406.19065" target="_blank">Paper</a> 
-</p>
 
 ![local file](overview.png)
 
-STBench+ is a benchmark to evaluate the ability of large language models in spatio-temporal analysis. This benchmark consists of 18 distinct tasks and over 80,000 question-answer pairs, covering five dimensions: knowledge comprehension, spatio-temporal reasoning, accurate computation, semantic reasoning and downstream applications.
+STBench+ is a benchmark to evaluate the ability of large language models in spatio-temporal analysis. For systematically accessing the ability of LLMs in spatio-temporal analysis. STBench+ dissects LLMs' capability of spatio-temporal data into five distinct dimensions, *i.e.* knowledge comprehension, spatio-temporal reasoning, accurate computation, semantic reasoning and downstream applications, and generates over 80,000 QA pairs cover 18 spatio-temporal analysis tasks. Moreover, STBench+ provide an exhaustive comparison of 30 LLMs including the recent reasoning models, such as Grok-4, Gemini-2.5-Pro, Deepseek-R1, GPT-4.1 and Qwen. Experimental results reveal that existing LLMs show remarkable performance on knowledge comprehension and spatio-temporal reasoning tasks, with potential for further enhancement on other tasks through in-context learning, chain-of-though prompting, and fine-tuning.
 
 All data samples in STBench+ are in the form of text completion. An instance is as follows:
+
 ```text
 Question: Below is the coordinate information and related comments of a point of interest: ... Please answer the category of this point of interest.
 Options: (1) xxxx, (2) xxxx, (3) xxxx, ...
 Please answer one option.
 Answer: The answer is option (
 ```
+
 The model is expected to complete the text, *i.e.*, it should generate an option number. Therefore, to benchmark a model with STBench+, it is necessary to use a text completion API rather than a chat completion API. For chatting models that only provide chat completion API, we suggest instructing the models to complete the text through the system prompt:
+
 ```json
 [{"role": "system", "content": "you are a helpful text completion assistant. Please continue writing the text entered by the human."}, {"role": "human", "content": "Question: Below is the coordinate information and related comments of a point of interest: ... Please answer the category of this point of interest.\nOptions: (1) xxxx, (2) xxxx, (3) xxxx, ...\nPlease answer one option.\nAnswer: The answer is option ("}]
 ```
 
 ## Quick Start
+
 We have benchmarked 30 distinct large language models and here we provide a simple guide to reproduce our experiments.
 
 1. Dependency Installation
 
    Run the following command to install dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
-3. Model Downloading
+
+2. Model Downloading
 
    Our experiments about open-source models are based on [modelscope](https://github.com/modelscope/modelscope) and these open-source models can be downloaded by following command:
+
    ```bash
    cd code
    python downloads_llms.py
    ```
 
-4. Basic Prompt
+3. Basic Prompt
 
    Run the following command to benchmark all models through 18 tasks:
+
    ```bash
    python basic_prompting_api.py
    python basic_prompting_local.py
-   ``` 
+   ```
+
    Evaluating the NAV task using xFinder:
+
    ```bash
    python metric_cal_xFinder.py
-   ``` 
+   ```
 
-6. In-Context Learning
+4. In-Context Learning
 
    Run the following command to evaluate the performance of all models with in-context learning:
+
    ```bash
    python icl_prompting.py
-   ``` 
+   ```
 
-7. Chain-of-Thought Prompting
+5. Chain-of-Thought Prompting
 
    To conduct experiments with chain-of-thought prompting for all models, run the following command:
+
    ```bash
    python cot_prompting.py
    ```
 
-8. Fine-tuning
+6. Fine-tuning
 
    Run the following command to fine-tune the model and evaluate the fine-tuned model:
+
    ```bash
    python fine_tuning.py
    ```
 
 ## Detailed Usage
+
 This repository is organized as follows:
+
 ```text
 Project
   |—— LICENSE
@@ -99,13 +108,14 @@ Project
       |—— result_parser.py          # code for identifying the final answer of the model
       |—— config.py                 # a declaration of some configuration such as the file path for each task      
 ```
+
 1. To benchmark a new model, namely **NEW_MODEL**
 
    a. Write your code for calling the API of this model in `code/model_inference/new_model.py`, and modify `code/model_inference/__init__.py` accordingly.
 
    b. Add the model to the model list in `code/basic_prompting.py` 
 
-3. To include a new dataset, namely `new_dataset.jsonl`, for a task **NEW_TASK**
+2. To include a new dataset, namely `new_dataset.jsonl`, for a task **NEW_TASK**
 
    a. Put your datasets here: `dataset/basic/new_dataset.jsonl`
 
@@ -114,10 +124,11 @@ Project
    c. Modify `code/config.py` to specify the mapping from **NEW_TASK** to the dataset path `dataset/basic/new_dataset.jsonl` and the mapping from **NEW_TASK** to the result parser `new_task_parser()`
 
    d. Add the task to the task list in `code/basic_prompting.py` 
-   
+
 ## Experimental Results
 
 + Accuracy and MAE are shown in the following table:
+
 <table>
   <tr>
     <td align="center"></td>
@@ -135,6 +146,7 @@ Project
     <td align="center">RLJ</td><td align="center">RHD</td><td align="center">TOD</td><td align="center">TC</td>
     <td align="center">FP</td><td align="center">TAD</td><td align="center">TP</td>
   </tr>
+
 
   <!-- Grok-4 -->
   <tr>
